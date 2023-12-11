@@ -9,6 +9,7 @@ export const router = Router();
 
 import { CreateUser, LoginUser, RenewToken } from "../controllers/auth.js";
 import { fieldValidator } from "../middlewares/field-validator.js";
+import { validarJwt } from "../middlewares/validar-jwt.js";
 
 router.post(
     "/new",
@@ -33,4 +34,4 @@ router.post(
     LoginUser
 );
 
-router.get("/renew", RenewToken);
+router.get("/renew", [validarJwt], RenewToken);

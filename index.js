@@ -1,6 +1,7 @@
 import express from "express";
-import { router } from "./routes/auth.js";
 import dbConnection from "./database/config.js";
+import { router } from "./routes/auth.js";
+import cors from "cors";
 // crear servidor de express
 
 const app = express();
@@ -9,8 +10,11 @@ const app = express();
 
 dbConnection();
 
-// middlewares
+// cors
 
+app.use(cors());
+
+// middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
