@@ -1,6 +1,7 @@
 import express from "express";
 import dbConnection from "./database/config.js";
 import { router } from "./routes/auth.js";
+import { router as eventsRouter } from "./routes/events.js";
 import cors from "cors";
 // crear servidor de express
 
@@ -24,6 +25,7 @@ app.use(express.static("public"));
 
 //rutas
 app.use("/api/auth", router);
+app.use("/api/events", eventsRouter);
 
 // listen
 app.listen(process.env.PORT, () => {

@@ -6,7 +6,7 @@ import { generarJWT } from "./../helpers/jwt.js";
 const CreateUser = async (req, res = response) => {
     const { email, password } = req.body;
 
-    //conexion con la bd
+    //* conexion con la bd
     try {
         let usuario = await Usuario.findOne({ email });
 
