@@ -20,6 +20,6 @@ export const validarJwt = (req, res = response, next) => {
             msg: "Token no valido",
         });
     }
-
+    // update
     next();
 };
